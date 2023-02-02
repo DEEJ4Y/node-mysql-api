@@ -3,6 +3,9 @@ const Books = require("../models/book");
 
 let connection;
 
+/**
+ * Connect to a MySQL database and test the connection.
+ */
 exports.connectDB = () => {
   connection = mysql.createConnection({
     host: process.env.DB_HOST || "127.0.0.1",
@@ -19,10 +22,16 @@ exports.connectDB = () => {
   });
 };
 
+/**
+ * @returns {mysql.Connection} A MySQL connection.
+ */
 exports.getConnection = () => {
   return connection;
 };
 
+/**
+ * Initialize all tables in the database.
+ */
 exports.initTables = () => {
   Books.createBookTable();
 };

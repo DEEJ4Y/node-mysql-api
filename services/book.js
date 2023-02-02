@@ -2,6 +2,11 @@ const db = require("../loaders/db");
 const { getBookColumns } = require("../models/book");
 const { objectToInsertQuery, objectToUpdateQuery } = require("../utils/query");
 
+/**
+ * Database query to get all books.
+ *
+ * @returns {Promise<null|any>}
+ */
 exports.getAllBooksService = () => {
   return new Promise((resolve) => {
     const connection = db.getConnection();
@@ -16,6 +21,13 @@ exports.getAllBooksService = () => {
   });
 };
 
+/**
+ * Database query to create a book.
+ *
+ * @param {object} values Object with column:value mapped data.
+ *
+ * @returns {Promise<null|any>}
+ */
 exports.createBookService = (values) => {
   return new Promise((resolve, reject) => {
     if (!values) reject(new Error("values is undefined."));
@@ -36,6 +48,13 @@ exports.createBookService = (values) => {
   });
 };
 
+/**
+ * Database query to get a book by its id.
+ *
+ * @param {string} id id of the book.
+ *
+ * @returns {Promise<null|any>}
+ */
 exports.getBookByIdService = (id) => {
   return new Promise((resolve, reject) => {
     if (!id) reject(new Error("id is undefined."));
@@ -57,6 +76,14 @@ exports.getBookByIdService = (id) => {
   });
 };
 
+/**
+ * Database query to update a book by its id.
+ *
+ * @param {string} id id of the book.
+ * @param {object} updateObj Object with column:value mapped data.
+ *
+ * @returns {Promise<null|any>}
+ */
 exports.updateBookByIdService = (id, updateObj) => {
   return new Promise((resolve, reject) => {
     if (!id) reject(new Error("id is undefined."));
@@ -81,6 +108,13 @@ exports.updateBookByIdService = (id, updateObj) => {
   });
 };
 
+/**
+ * Database query to delete a book by its id.
+ *
+ * @param {string} id id of the book.
+ *
+ * @returns {Promise<null|any>}
+ */
 exports.deleteBookByIdService = (id) => {
   return new Promise((resolve, reject) => {
     if (!id) reject(new Error("id is undefined."));

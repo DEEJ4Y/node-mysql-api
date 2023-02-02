@@ -8,8 +8,10 @@ const {
 
 const router = require("express").Router({ mergeParams: true });
 
+/**
+ * Setup API routes for book.
+ */
 router.route("/").get(getAllBooksController).post(createBookController);
-
 router
   .route("/:bookId")
   .get(getBookByIdController)

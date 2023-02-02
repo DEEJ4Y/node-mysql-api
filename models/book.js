@@ -1,7 +1,13 @@
 const db = require("../loaders/db");
 
+/**
+ * Available columns in the books table.
+ */
 const bookColumns = ["id", "title", "description"];
 
+/**
+ * Function to initialze the books table.
+ */
 exports.createBookTable = () => {
   const connection = db.getConnection();
 
@@ -21,4 +27,7 @@ exports.createBookTable = () => {
   });
 };
 
+/**
+ * @returns {string[]} Array of available columns in the table.
+ */
 exports.getBookColumns = () => bookColumns;

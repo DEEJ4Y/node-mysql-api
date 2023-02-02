@@ -5,7 +5,15 @@ const {
   updateBookByIdService,
   deleteBookByIdService,
 } = require("../services/book");
+const express = require("express");
 
+/**
+ * Controller function to get all books.
+ *
+ * @param {express.Request} req
+ * @param {express.Response} res
+ * @param {express.NextFunction} next
+ */
 exports.getAllBooksController = async (req, res, next) => {
   const books = await getAllBooksService();
 
@@ -23,6 +31,13 @@ exports.getAllBooksController = async (req, res, next) => {
   });
 };
 
+/**
+ * Controller function to create a book.
+ *
+ * @param {express.Request} req
+ * @param {express.Response} res
+ * @param {express.NextFunction} next
+ */
 exports.createBookController = async (req, res, next) => {
   const bookData = req.body;
 
@@ -48,6 +63,13 @@ exports.createBookController = async (req, res, next) => {
   });
 };
 
+/**
+ * Controller function to get a book by its id.
+ *
+ * @param {express.Request} req
+ * @param {express.Response} res
+ * @param {express.NextFunction} next
+ */
 exports.getBookByIdController = async (req, res, next) => {
   const bookId = req.params.bookId;
 
@@ -83,6 +105,13 @@ exports.getBookByIdController = async (req, res, next) => {
   });
 };
 
+/**
+ * Controller function to update a book by its id.
+ *
+ * @param {express.Request} req
+ * @param {express.Response} res
+ * @param {express.NextFunction} next
+ */
 exports.updateBookByIdController = async (req, res, next) => {
   const bookId = req.params.bookId;
   const bookData = req.body;
@@ -123,6 +152,13 @@ exports.updateBookByIdController = async (req, res, next) => {
   });
 };
 
+/**
+ * Controller function to delete a book by its id.
+ *
+ * @param {express.Request} req
+ * @param {express.Response} res
+ * @param {express.NextFunction} next
+ */
 exports.deleteBookByIdController = async (req, res, next) => {
   const bookId = req.params.bookId;
 
